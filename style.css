@@ -1,6 +1,7 @@
 /* =========================================================
-   STYLE.CSS — Charte chaude ocre / bordeaux / terre
-   Site one-page du Centre / Dispensaire Stella Maria
+   STYLE.CSS — Centre Stella Maria
+   Charte chaude ocre / jaune / brun / bordeaux / noir
+   Photos proportionnelles, non coupées, cadres maîtrisés
    ========================================================= */
 
 /* Palette principale inspirée du bâtiment */
@@ -20,8 +21,6 @@
   --color-brown: #4a2e1f;
   --color-brown-soft: #7a573f;
   --color-black: #18120d;
-
-  --color-green: #4f6f2f;
 
   --color-white: #ffffff;
   --color-border: #e1c48d;
@@ -84,15 +83,15 @@ body {
   background:
     linear-gradient(
       135deg,
-      rgba(127, 48, 43, 0.92),
-      rgba(156, 74, 53, 0.88)
+      rgba(127, 48, 43, 0.94),
+      rgba(156, 74, 53, 0.9)
     ),
     linear-gradient(
       135deg,
       var(--color-ocre-light),
       var(--color-sand)
     );
-  padding: 95px 20px;
+  padding: 90px 20px;
   text-align: center;
   color: var(--color-white);
 }
@@ -125,7 +124,7 @@ h1 {
 .hero-text {
   font-size: 20px;
   max-width: 780px;
-  margin: 0 auto 34px;
+  margin: 0 auto 28px;
   color: #fff7e6;
 }
 
@@ -212,6 +211,15 @@ p {
   font-size: 18px;
 }
 
+/* Liens standards dans les textes */
+a {
+  color: var(--color-bordeaux);
+}
+
+a:hover {
+  color: var(--color-rust);
+}
+
 /* Cartes */
 .cards {
   display: grid;
@@ -230,6 +238,11 @@ p {
 
 .card:hover {
   box-shadow: var(--shadow-strong);
+}
+
+/* Quand une carte est placée à côté d’images, elle prend toute la largeur du bloc */
+.content-with-media .cards {
+  grid-template-columns: 1fr;
 }
 
 /* Liste bénévolat */
@@ -317,18 +330,6 @@ p {
   margin-top: 24px;
 }
 
-/* Image hero si tu en ajoutes une */
-.hero-image {
-  margin-top: 42px;
-}
-
-.hero-image img {
-  max-width: 100%;
-  border-radius: 22px;
-  border: 5px solid rgba(255, 255, 255, 0.55);
-  box-shadow: var(--shadow-strong);
-}
-
 /* Footer */
 .footer {
   background: var(--color-black);
@@ -344,82 +345,155 @@ p {
   color: #f8ead0;
 }
 
-/* Liens standards dans les textes */
-a {
-  color: var(--color-bordeaux);
+/* =========================================================
+   PHOTOS — CADRES MAÎTRISÉS, IMAGES NON COUPÉES
+   ========================================================= */
+
+figure {
+  margin: 0;
 }
 
-a:hover {
-  color: var(--color-rust);
-}
-/* Images intégrées dans les sections */
+/* Bloc général d’une image */
+.image-block {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow: var(--shadow-soft);
 
-.section-with-image,
-.section-with-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* Image dans un cadre :
+   - proportions conservées
+   - pas de déformation
+   - pas de coupe
+   - centrée dans son cadre */
+.image-block img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Photo principale du haut */
+.hero-photo {
+  margin: 36px auto 0;
+  width: 100%;
+  max-width: 820px;
+  height: 390px;
+  border: 5px solid rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-strong);
+}
+
+/* Mise en page texte + images */
+.content-with-media {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 34px;
   align-items: center;
 }
 
-.section-with-image.reverse {
+.content-with-media.media-left {
   grid-template-columns: 0.9fr 1.1fr;
 }
 
-.section-text {
-  min-width: 0;
-}
-
-.section-image img,
-.image-stack img,
-.contact-photo-section img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 22px;
-  border: 5px solid #ffffff;
-  box-shadow: var(--shadow-strong);
-}
-
-.section-image img {
-  height: 420px;
-}
-
-.image-stack {
+/* Grilles photos */
+.photo-grid {
   display: grid;
   gap: 18px;
+  margin-top: 30px;
+  align-items: stretch;
 }
 
-.image-stack img {
-  height: 250px;
-}
-
-.single-card {
+/* Nombre de colonnes */
+.photo-grid-1 {
   grid-template-columns: 1fr;
 }
 
+.photo-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.photo-grid-3,
+.photo-grid-4,
+.photo-grid-5 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Taille maîtrisée des photos en galerie */
+.photo-grid .image-block {
+  height: 210px;
+}
+
+/* Photos à côté d’un bloc texte */
+.content-with-media .photo-grid {
+  margin-top: 0;
+}
+
+.content-with-media .image-block {
+  height: 230px;
+}
+
+/* Section "Qui nous aidons" :
+   plusieurs photos mais format compact */
+.content-with-media .photo-grid-2 .image-block {
+  height: 210px;
+}
+
+/* Grande photo avant le contact */
+.wide-image {
+  max-width: 860px;
+  height: 360px;
+  margin: 0 auto;
+}
+
+/* Section photo avant contact */
 .contact-photo-section {
-  padding-top: 40px;
+  padding-top: 35px;
   padding-bottom: 0;
   background: var(--color-bg);
 }
 
-.contact-photo-section img {
-  max-height: 520px;
-  object-position: center;
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* Tablette */
+@media (max-width: 1000px) {
+  .photo-grid-3,
+  .photo-grid-4,
+  .photo-grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photo-grid .image-block {
+    height: 220px;
+  }
 }
-/* Responsive mobile */
+
+/* Mobile */
 @media (max-width: 800px) {
-  h1 {
-    font-size: 34px;
+  .nav {
+    gap: 14px;
+  }
+
+  .nav a {
+    font-size: 14px;
   }
 
   .hero {
-    padding: 72px 20px;
+    padding: 70px 20px;
   }
 
-  .hero-text {
-    font-size: 18px;
+  h1 {
+    font-size: 34px;
   }
 
   h2 {
@@ -430,20 +504,48 @@ a:hover {
     font-size: 17px;
   }
 
-  .cards {
-    grid-template-columns: 1fr;
+  .hero-text {
+    font-size: 18px;
   }
 
   .section {
     padding: 55px 20px;
   }
 
-  .nav {
-    gap: 14px;
+  .cards {
+    grid-template-columns: 1fr;
   }
 
-  .nav a {
-    font-size: 14px;
+  .content-with-media,
+  .content-with-media.media-left,
+  .photo-grid-2,
+  .photo-grid-3,
+  .photo-grid-4,
+  .photo-grid-5 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-photo {
+    height: 280px;
+    max-width: 100%;
+  }
+
+  .photo-grid {
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .photo-grid .image-block,
+  .content-with-media .image-block {
+    height: 250px;
+  }
+
+  .wide-image {
+    height: 280px;
+  }
+
+  .image-block {
+    padding: 6px;
   }
 
   .button {
@@ -451,151 +553,8 @@ a:hover {
     max-width: 320px;
     text-align: center;
   }
-   .section-with-image,
-  .section-with-images,
-  .section-with-image.reverse {
-    grid-template-columns: 1fr;
-  }
-
-  .section-image img {
-    height: 300px;
-  }
-
-  .image-stack img {
-    height: 240px;
-  }
 
   .contact-photo-section {
     padding-top: 20px;
-  }
-
-  .contact-photo-section img {
-    max-height: none;
-  }
-}
-figure {
-  margin: 0;
-}
-
-.hero-image {
-  margin-top: 42px;
-}
-
-.hero-image img,
-.media-card img,
-.wide-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-.hero-image img,
-.media-card,
-.wide-photo {
-  border-radius: 22px;
-}
-
-.hero-image img {
-  border: 5px solid rgba(255, 255, 255, 0.65);
-  box-shadow: var(--shadow-strong);
-}
-
-.text-image-layout {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 34px;
-  align-items: center;
-}
-
-.text-image-layout.reverse {
-  grid-template-columns: 0.95fr 1.05fr;
-}
-
-.text-block {
-  min-width: 0;
-}
-
-.photo-column {
-  display: grid;
-  gap: 18px;
-}
-
-.photo-row {
-  display: grid;
-  gap: 22px;
-  margin-top: 34px;
-}
-
-.photo-row.two {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.photo-row.three {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.media-card {
-  background: #ffffff;
-  border: 1px solid var(--color-border);
-  padding: 8px;
-  box-shadow: var(--shadow-soft);
-}
-
-.media-card img {
-  border-radius: 16px;
-}
-
-.wide-photo {
-  background: #ffffff;
-  border: 1px solid var(--color-border);
-  padding: 8px;
-  box-shadow: var(--shadow-strong);
-}
-
-.wide-photo img {
-  border-radius: 16px;
-}
-
-.single-card {
-  grid-template-columns: 1fr;
-}
-
-.contact-photo-section {
-  padding-top: 45px;
-  padding-bottom: 0;
-  background: var(--color-bg);
-}
-
-/* Sécurité : neutralise les anciens réglages qui pouvaient couper les images */
-.section-image img,
-.image-stack img,
-.contact-photo-section img {
-  height: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
-}
-
-/* Mobile */
-@media (max-width: 800px) {
-  .text-image-layout,
-  .text-image-layout.reverse,
-  .photo-row.two,
-  .photo-row.three {
-    grid-template-columns: 1fr;
-  }
-
-  .photo-column {
-    gap: 16px;
-  }
-
-  .photo-row {
-    gap: 18px;
-    margin-top: 26px;
-  }
-
-  .media-card,
-  .wide-photo {
-    padding: 6px;
   }
 }
