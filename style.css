@@ -1,14 +1,12 @@
 /* =========================================================
    STYLE.CSS — Centre Stella Maria
    Charte chaude ocre / jaune / brun / bordeaux / noir
-   Photos proportionnelles, non coupées, cadres maîtrisés
+   Photos harmonisées, non déformées, non coupées
    ========================================================= */
 
-/* Palette principale inspirée du bâtiment */
 :root {
   --color-bg: #fffaf0;
   --color-bg-light: #f7ecd2;
-  --color-bg-warm: #f1d794;
 
   --color-ocre: #d9a321;
   --color-ocre-light: #f3c94f;
@@ -19,7 +17,6 @@
   --color-rust: #9c4a35;
 
   --color-brown: #4a2e1f;
-  --color-brown-soft: #7a573f;
   --color-black: #18120d;
 
   --color-white: #ffffff;
@@ -29,7 +26,6 @@
   --shadow-strong: 0 16px 40px rgba(74, 46, 31, 0.22);
 }
 
-/* Réglages généraux */
 * {
   box-sizing: border-box;
 }
@@ -46,7 +42,6 @@ body {
   line-height: 1.6;
 }
 
-/* Header / navigation */
 .site-header {
   background: rgba(255, 250, 240, 0.96);
   border-bottom: 1px solid var(--color-border);
@@ -78,7 +73,6 @@ body {
   text-decoration: underline;
 }
 
-/* Hero */
 .hero {
   background:
     linear-gradient(
@@ -91,13 +85,13 @@ body {
       var(--color-ocre-light),
       var(--color-sand)
     );
-  padding: 90px 20px;
+  padding: 90px 20px 80px;
   text-align: center;
   color: var(--color-white);
 }
 
 .hero-content {
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
@@ -123,12 +117,11 @@ h1 {
 
 .hero-text {
   font-size: 20px;
-  max-width: 780px;
-  margin: 0 auto 28px;
+  max-width: 800px;
+  margin: 0 auto 30px;
   color: #fff7e6;
 }
 
-/* Boutons */
 .hero-buttons,
 .contact-buttons {
   display: flex;
@@ -169,9 +162,8 @@ h1 {
   color: var(--color-bordeaux-dark);
 }
 
-/* Sections */
 .section {
-  padding: 70px 20px;
+  padding: 72px 20px;
   background: var(--color-bg);
 }
 
@@ -180,7 +172,7 @@ h1 {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
@@ -211,7 +203,6 @@ p {
   font-size: 18px;
 }
 
-/* Liens standards dans les textes */
 a {
   color: var(--color-bordeaux);
 }
@@ -220,12 +211,15 @@ a:hover {
   color: var(--color-rust);
 }
 
-/* Cartes */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
   margin-top: 30px;
+}
+
+.single-card {
+  grid-template-columns: 1fr;
 }
 
 .card {
@@ -240,12 +234,6 @@ a:hover {
   box-shadow: var(--shadow-strong);
 }
 
-/* Quand une carte est placée à côté d’images, elle prend toute la largeur du bloc */
-.content-with-media .cards {
-  grid-template-columns: 1fr;
-}
-
-/* Liste bénévolat */
 .check-list {
   padding-left: 0;
   list-style: none;
@@ -269,7 +257,6 @@ a:hover {
   margin-right: 8px;
 }
 
-/* Bloc informations pratiques */
 .info-box {
   background: var(--color-white);
   border: 1px solid var(--color-border);
@@ -283,7 +270,6 @@ a:hover {
   margin: 10px 0;
 }
 
-/* FAQ */
 .faq {
   border-top: 1px solid var(--color-border);
 }
@@ -298,7 +284,6 @@ a:hover {
   margin-top: 0;
 }
 
-/* Section contact */
 .contact-section {
   background:
     linear-gradient(
@@ -330,7 +315,6 @@ a:hover {
   margin-top: 24px;
 }
 
-/* Footer */
 .footer {
   background: var(--color-black);
   color: var(--color-white);
@@ -346,139 +330,187 @@ a:hover {
 }
 
 /* =========================================================
-   PHOTOS — CADRES MAÎTRISÉS, IMAGES NON COUPÉES
+   STRUCTURE TEXTE + PHOTOS
+   ========================================================= */
+
+.section-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 42px;
+  align-items: center;
+}
+
+.section-layout.reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.section-text {
+  min-width: 0;
+}
+
+/* =========================================================
+   PHOTOS — SANS CROP, SANS DÉFORMATION, SANS CADRE BLANC VIDE
    ========================================================= */
 
 figure {
   margin: 0;
 }
 
-/* Bloc général d’une image */
-.image-block {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 18px;
-  padding: 8px;
-  box-shadow: var(--shadow-soft);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-}
-
-/* Image dans un cadre :
-   - proportions conservées
-   - pas de déformation
-   - pas de coupe
-   - centrée dans son cadre */
-.image-block img {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  border-radius: 12px;
-}
-
-/* Photo principale du haut */
 .hero-photo {
-  margin: 36px auto 0;
+  margin: 38px auto 0;
+  max-width: 860px;
+}
+
+.hero-photo img {
+  display: block;
   width: 100%;
-  max-width: 820px;
-  height: 390px;
-  border: 5px solid rgba(255, 255, 255, 0.55);
+  height: auto;
+  max-height: 540px;
+  object-fit: contain;
+  border-radius: 24px;
   box-shadow: var(--shadow-strong);
 }
 
-/* Mise en page texte + images */
-.content-with-media {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 34px;
-  align-items: center;
-}
-
-.content-with-media.media-left {
-  grid-template-columns: 0.9fr 1.1fr;
-}
-
-/* Grilles photos */
-.photo-grid {
+.media-mosaic {
   display: grid;
   gap: 18px;
+  align-items: start;
+}
+
+.photo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 310px;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Mission : 4 photos équilibrées */
+.mission-media {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mission-media .photo-card img {
+  max-height: 245px;
+}
+
+/* Qui nous aidons : photos enfants et lieu */
+.children-media {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.children-media .photo-card img {
+  max-height: 275px;
+}
+
+.children-media .photo-card.wide {
+  grid-column: 1 / -1;
+}
+
+.children-media .photo-card.wide img {
+  max-height: 260px;
+}
+
+/* Comment aider : support matériel, quotidien, lieux */
+.support-media {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 34px;
+}
+
+.support-media .photo-card img {
+  max-height: 250px;
+}
+
+.support-media .photo-card.wide {
+  grid-column: span 2;
+}
+
+.support-media .photo-card.wide img {
+  max-height: 280px;
+}
+
+/* Bénévolat : visuels plus nombreux, grille compacte */
+.volunteer-media {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.volunteer-media .photo-card img {
+  max-height: 235px;
+}
+
+/* Informations pratiques */
+.practical-media {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.practical-media .photo-card img {
+  max-height: 250px;
+}
+
+.practical-media .photo-card.wide {
+  grid-column: 1 / -1;
+}
+
+.practical-media .photo-card.wide img {
+  max-height: 285px;
+}
+
+/* Transparence */
+.transparency-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.75fr);
+}
+
+.transparency-photo img {
+  max-height: 360px;
+}
+
+/* Galerie finale */
+.gallery-final-section {
+  padding-top: 58px;
+}
+
+.final-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
   margin-top: 30px;
-  align-items: stretch;
 }
 
-/* Nombre de colonnes */
-.photo-grid-1 {
-  grid-template-columns: 1fr;
-}
-
-.photo-grid-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.photo-grid-3,
-.photo-grid-4,
-.photo-grid-5 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-/* Taille maîtrisée des photos en galerie */
-.photo-grid .image-block {
-  height: 210px;
-}
-
-/* Photos à côté d’un bloc texte */
-.content-with-media .photo-grid {
-  margin-top: 0;
-}
-
-.content-with-media .image-block {
-  height: 230px;
-}
-
-/* Section "Qui nous aidons" :
-   plusieurs photos mais format compact */
-.content-with-media .photo-grid-2 .image-block {
-  height: 210px;
-}
-
-/* Grande photo avant le contact */
-.wide-image {
-  max-width: 860px;
-  height: 360px;
-  margin: 0 auto;
-}
-
-/* Section photo avant contact */
-.contact-photo-section {
-  padding-top: 35px;
-  padding-bottom: 0;
-  background: var(--color-bg);
+.final-gallery .photo-card img {
+  max-height: 360px;
 }
 
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 
-/* Tablette */
 @media (max-width: 1000px) {
-  .photo-grid-3,
-  .photo-grid-4,
-  .photo-grid-5 {
-    grid-template-columns: repeat(2, 1fr);
+  .section-layout,
+  .section-layout.reverse,
+  .transparency-layout {
+    grid-template-columns: 1fr;
   }
 
-  .photo-grid .image-block {
-    height: 220px;
+  .support-media {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .support-media .photo-card.wide {
+    grid-column: 1 / -1;
   }
 }
 
-/* Mobile */
 @media (max-width: 800px) {
   .nav {
     gap: 14px;
@@ -489,7 +521,7 @@ figure {
   }
 
   .hero {
-    padding: 70px 20px;
+    padding: 70px 20px 58px;
   }
 
   h1 {
@@ -516,45 +548,42 @@ figure {
     grid-template-columns: 1fr;
   }
 
-  .content-with-media,
-  .content-with-media.media-left,
-  .photo-grid-2,
-  .photo-grid-3,
-  .photo-grid-4,
-  .photo-grid-5 {
+  .mission-media,
+  .children-media,
+  .support-media,
+  .volunteer-media,
+  .practical-media,
+  .final-gallery {
     grid-template-columns: 1fr;
   }
 
-  .hero-photo {
-    height: 280px;
-    max-width: 100%;
+  .support-media .photo-card.wide,
+  .children-media .photo-card.wide,
+  .practical-media .photo-card.wide {
+    grid-column: auto;
   }
 
-  .photo-grid {
-    gap: 16px;
-    margin-top: 24px;
+  .hero-photo img {
+    max-height: 420px;
   }
 
-  .photo-grid .image-block,
-  .content-with-media .image-block {
-    height: 250px;
-  }
-
-  .wide-image {
-    height: 280px;
-  }
-
-  .image-block {
-    padding: 6px;
+  .photo-card img,
+  .mission-media .photo-card img,
+  .children-media .photo-card img,
+  .children-media .photo-card.wide img,
+  .support-media .photo-card img,
+  .support-media .photo-card.wide img,
+  .volunteer-media .photo-card img,
+  .practical-media .photo-card img,
+  .practical-media .photo-card.wide img,
+  .transparency-photo img,
+  .final-gallery .photo-card img {
+    max-height: 360px;
   }
 
   .button {
     width: 100%;
     max-width: 320px;
     text-align: center;
-  }
-
-  .contact-photo-section {
-    padding-top: 20px;
   }
 }
