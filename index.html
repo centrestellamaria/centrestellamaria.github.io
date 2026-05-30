@@ -34,6 +34,29 @@
 
   <link rel="preload" as="image" href="images/soeurs-portail.jpg">
   <link rel="stylesheet" href="style.css">
+  <style>
+  main figure,
+  main .photo-card,
+  main .hero-photo,
+  main .final-gallery .photo-card,
+  main .media-mosaic .photo-card,
+  main .transparency-photo {
+    border-radius: 22px !important;
+    overflow: hidden !important;
+  }
+
+  main img,
+  main figure img,
+  main .photo-card img,
+  main .hero-photo img,
+  main .final-gallery img,
+  main .media-mosaic img,
+  main .transparency-photo img {
+    border-radius: 22px !important;
+    clip-path: inset(0 round 22px) !important;
+    display: block !important;
+  }
+</style>
 
   <script type="application/ld+json">
   {
