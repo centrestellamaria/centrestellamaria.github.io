@@ -588,19 +588,24 @@ figure {
   }
 }
 /* =========================================================
-   ARRONDI FORCÉ SUR TOUTES LES IMAGES DU SITE
+   ARRONDI GLOBAL FORCÉ DES IMAGES
    ========================================================= */
 
-img,
+.hero-photo,
+.photo-card,
+.final-gallery .photo-card,
+.media-mosaic .photo-card,
+.transparency-photo {
+  border-radius: 22px !important;
+  overflow: hidden !important;
+}
+
 .hero-photo img,
 .photo-card img,
 .final-gallery img,
 .media-mosaic img,
-.practical-media img,
-.mission-media img,
-.children-media img,
-.support-media img,
-.volunteer-media img,
-.transparency-photo img {
-  border-radius: 18px !important;
+.transparency-photo img,
+main img {
+  border-radius: 22px !important;
+  overflow: hidden !important;
 }
