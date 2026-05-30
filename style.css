@@ -587,3 +587,23 @@ figure {
     text-align: center;
   }
 }
+/* =========================================================
+   ARRONDI GLOBAL DES IMAGES
+   ========================================================= */
+
+img {
+  border-radius: 18px;
+}
+
+.hero-photo img,
+.photo-card img,
+.final-gallery img,
+.media-mosaic img,
+.practical-media img,
+.mission-media img,
+.children-media img,
+.support-media img,
+.volunteer-media img,
+.transparency-photo img {
+  border-radius: 18px;
+}
