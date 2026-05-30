@@ -588,13 +588,10 @@ figure {
   }
 }
 /* =========================================================
-   ARRONDI GLOBAL DES IMAGES
+   ARRONDI FORCÉ SUR TOUTES LES IMAGES DU SITE
    ========================================================= */
 
-img {
-  border-radius: 18px;
-}
-
+img,
 .hero-photo img,
 .photo-card img,
 .final-gallery img,
@@ -605,5 +602,5 @@ img {
 .support-media img,
 .volunteer-media img,
 .transparency-photo img {
-  border-radius: 18px;
+  border-radius: 18px !important;
 }
