@@ -1,6 +1,5 @@
 /* =========================================================
    STYLE.CSS â€” Centre Stella Maria
-   Charte chaude ocre / jaune / brun / bordeaux / noir
    ========================================================= */
 
 :root {
@@ -189,6 +188,7 @@ h3 { color: var(--color-bordeaux); margin-top: 0; }
 p { font-size: 18px; }
 a { color: var(--color-bordeaux); }
 a:hover { color: var(--color-rust); }
+figure { margin: 0; }
 
 /* ===== CARTES ===== */
 .cards {
@@ -259,7 +259,11 @@ a:hover { color: var(--color-rust); }
 }
 
 .contact-section h2 { color: var(--color-white); }
-.contact-section h2::after { background: var(--color-ocre-light); margin-left: auto; margin-right: auto; }
+.contact-section h2::after {
+  background: var(--color-ocre-light);
+  margin-left: auto;
+  margin-right: auto;
+}
 .contact-section p { color: #fff3d6; }
 
 /* ===== FOOTER ===== */
@@ -291,48 +295,55 @@ a:hover { color: var(--color-rust); }
 .section-text { min-width: 0; }
 
 /* =========================================================
-   PHOTOS â€” RÃˆGLE UNIVERSELLE BORDS ARRONDIS
-   Principe : le conteneur (figure/.photo-card) porte
-   border-radius + overflow:hidden. L'image remplit
-   le conteneur avec object-fit:cover pour que l'arrondi
-   soit visible. Les hauteurs sont gÃ©nÃ©reuses pour Ã©viter
-   tout crop agressif.
+   PHOTOS
+
+   RÃ¨gle gÃ©nÃ©rale : toutes les .photo-card ont bords arrondis
+   Exceptions explicites :
+     - .hero-photo          â†’ coins CARRÃ‰S (soeurs-portail)
+     - .final-gallery .photo-card â†’ coins CARRÃ‰S (soeurs-enfants, soeurs-bethanie)
    ========================================================= */
 
-figure { margin: 0; }
-
-/* --- Conteneurs : arrondi + masquage des coins --- */
-.hero-photo,
-.photo-card,
-.transparency-photo {
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-/* --- Toutes les images : remplissent leur conteneur --- */
-.hero-photo img,
-.photo-card img,
-.transparency-photo img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 0; /* L'arrondi est sur le conteneur, pas l'image */
-}
-
-/* ===== HERO PHOTO ===== */
+/* --- HERO PHOTO : coins CARRÃ‰S --- */
 .hero-photo {
   margin: 38px auto 0;
   max-width: 860px;
+  border-radius: 0;
+  overflow: visible;
   box-shadow: var(--shadow-strong);
 }
 
 .hero-photo img {
+  display: block;
+  width: 100%;
   height: auto;
   max-height: 520px;
-  width: 100%;
-  /* Photo portrait/paysage : on laisse la hauteur naturelle */
   object-fit: contain;
-  background: transparent;
+  border-radius: 0;
+}
+
+/* --- PHOTO-CARD gÃ©nÃ©rique : coins ARRONDIS --- */
+.photo-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0; /* arrondi gÃ©rÃ© par le conteneur via overflow:hidden */
+}
+
+/* --- GALERIE FINALE : coins CARRÃ‰S --- */
+.final-gallery .photo-card {
+  border-radius: 0;
+  overflow: visible;
+}
+
+.final-gallery .photo-card img {
+  border-radius: 0;
+  height: 380px;
 }
 
 /* ===== MOSAÃQUES ===== */
@@ -342,39 +353,22 @@ figure { margin: 0; }
   align-items: start;
 }
 
-.photo-card {
-  box-shadow: var(--shadow-soft);
-}
-
-.photo-card img {
-  height: 260px;
-}
-
-/* Mission : 4 photos 2x2 */
+/* Mission */
 .mission-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.mission-media .photo-card img {
-  height: 230px;
-}
+.mission-media .photo-card img { height: 230px; }
 
 /* Enfants */
 .children-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.children-media .photo-card img {
-  height: 260px;
-}
+.children-media .photo-card img { height: 260px; }
 
-.children-media .photo-card.wide {
-  grid-column: 1 / -1;
-}
-
-.children-media .photo-card.wide img {
-  height: 300px;
-}
+.children-media .photo-card.wide { grid-column: 1 / -1; }
+.children-media .photo-card.wide img { height: 300px; }
 
 /* Comment aider */
 .support-media {
@@ -382,43 +376,25 @@ figure { margin: 0; }
   margin-top: 34px;
 }
 
-.support-media .photo-card img {
-  height: 240px;
-}
-
-.support-media .photo-card.wide {
-  grid-column: span 2;
-}
-
-.support-media .photo-card.wide img {
-  height: 280px;
-}
+.support-media .photo-card img { height: 240px; }
+.support-media .photo-card.wide { grid-column: span 2; }
+.support-media .photo-card.wide img { height: 280px; }
 
 /* BÃ©nÃ©volat */
 .volunteer-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.volunteer-media .photo-card img {
-  height: 230px;
-}
+.volunteer-media .photo-card img { height: 230px; }
 
-/* Informations pratiques */
+/* Infos pratiques */
 .practical-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.practical-media .photo-card img {
-  height: 240px;
-}
-
-.practical-media .photo-card.wide {
-  grid-column: 1 / -1;
-}
-
-.practical-media .photo-card.wide img {
-  height: 320px;
-}
+.practical-media .photo-card img { height: 240px; }
+.practical-media .photo-card.wide { grid-column: 1 / -1; }
+.practical-media .photo-card.wide img { height: 320px; }
 
 /* Transparence */
 .transparency-layout {
@@ -426,14 +402,20 @@ figure { margin: 0; }
 }
 
 .transparency-photo {
+  border-radius: var(--radius);
+  overflow: hidden;
   box-shadow: var(--shadow-soft);
 }
 
 .transparency-photo img {
+  display: block;
+  width: 100%;
   height: 360px;
+  object-fit: cover;
+  border-radius: 0;
 }
 
-/* Galerie finale */
+/* Galerie finale conteneur */
 .gallery-final-section { padding-top: 58px; }
 
 .final-gallery {
@@ -441,18 +423,6 @@ figure { margin: 0; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
   margin-top: 30px;
-}
-
-.final-gallery .photo-card img {
-  height: 380px;
-}
-
-.final-gallery .photo-card {
-  border-radius: 0;
-}
-
-.final-gallery .photo-card img {
-  border-radius: 0;
 }
 
 /* =========================================================
@@ -470,13 +440,9 @@ figure { margin: 0; }
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .support-media .photo-card.wide {
-    grid-column: 1 / -1;
-  }
+  .support-media .photo-card.wide { grid-column: 1 / -1; }
 
-  .transparency-photo img {
-    height: 280px;
-  }
+  .transparency-photo img { height: 280px; }
 }
 
 @media (max-width: 800px) {
@@ -505,7 +471,6 @@ figure { margin: 0; }
     grid-column: auto;
   }
 
-  .photo-card img,
   .mission-media .photo-card img,
   .children-media .photo-card img,
   .children-media .photo-card.wide img,
@@ -514,10 +479,11 @@ figure { margin: 0; }
   .volunteer-media .photo-card img,
   .practical-media .photo-card img,
   .practical-media .photo-card.wide img,
-  .transparency-photo img,
-  .final-gallery .photo-card img {
+  .transparency-photo img {
     height: 260px;
   }
+
+  .final-gallery .photo-card img { height: 260px; }
 
   .button {
     width: 100%;
