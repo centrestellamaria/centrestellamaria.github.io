@@ -491,3 +491,11 @@ figure { margin: 0; }
     text-align: center;
   }
 }
+.photo-card.square {
+  border-radius: 0;
+  overflow: visible;
+}
+
+.photo-card.square img {
+  border-radius: 0;
+}
