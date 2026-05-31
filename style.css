@@ -1,7 +1,7 @@
 /* =========================================================
-   STYLE.CSS — Centre Stella Maria
+   STYLE.CSS â€” Centre Stella Maria
    Charte chaude ocre / jaune / brun / bordeaux / noir
-   Photos harmonisées, non déformées, non coupées
+   Photos harmonisÃ©es, non dÃ©formÃ©es, non coupÃ©es
    ========================================================= */
 
 :root {
@@ -251,7 +251,7 @@ a:hover {
 }
 
 .check-list li::before {
-  content: "✓";
+  content: "âœ“";
   color: var(--color-bordeaux);
   font-weight: bold;
   margin-right: 8px;
@@ -349,7 +349,8 @@ a:hover {
 }
 
 /* =========================================================
-   PHOTOS — SANS CROP, SANS DÉFORMATION, SANS CADRE BLANC VIDE
+   PHOTOS â€” SANS CROP, SANS DÃ‰FORMATION
+   Bords arrondis garantis sur tous les conteneurs et images
    ========================================================= */
 
 figure {
@@ -359,6 +360,8 @@ figure {
 .hero-photo {
   margin: 38px auto 0;
   max-width: 860px;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .hero-photo img {
@@ -377,12 +380,13 @@ figure {
   align-items: start;
 }
 
+/* Conteneur photo : overflow hidden garantit l'arrondi */
 .photo-card {
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  border-radius: 18px;
+  border-radius: 22px;
   overflow: hidden;
 }
 
@@ -392,11 +396,11 @@ figure {
   height: auto;
   max-height: 310px;
   object-fit: contain;
-  border-radius: 18px;
+  border-radius: 22px;
   box-shadow: var(--shadow-soft);
 }
 
-/* Mission : 4 photos équilibrées */
+/* Mission : 4 photos Ã©quilibrÃ©es */
 .mission-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -405,7 +409,7 @@ figure {
   max-height: 245px;
 }
 
-/* Qui nous aidons : photos enfants et lieu */
+/* Qui nous aidons */
 .children-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -422,7 +426,7 @@ figure {
   max-height: 260px;
 }
 
-/* Comment aider : support matériel, quotidien, lieux */
+/* Comment aider */
 .support-media {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 34px;
@@ -440,7 +444,7 @@ figure {
   max-height: 280px;
 }
 
-/* Bénévolat : visuels plus nombreux, grille compacte */
+/* BÃ©nÃ©volat */
 .volunteer-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -471,8 +475,14 @@ figure {
   grid-template-columns: minmax(0, 1fr) minmax(260px, 0.75fr);
 }
 
+.transparency-photo {
+  border-radius: 22px;
+  overflow: hidden;
+}
+
 .transparency-photo img {
   max-height: 360px;
+  border-radius: 22px;
 }
 
 /* Galerie finale */
@@ -586,26 +596,4 @@ figure {
     max-width: 320px;
     text-align: center;
   }
-}
-/* =========================================================
-   ARRONDI GLOBAL FORCÉ DES IMAGES
-   ========================================================= */
-
-.hero-photo,
-.photo-card,
-.final-gallery .photo-card,
-.media-mosaic .photo-card,
-.transparency-photo {
-  border-radius: 22px !important;
-  overflow: hidden !important;
-}
-
-.hero-photo img,
-.photo-card img,
-.final-gallery img,
-.media-mosaic img,
-.transparency-photo img,
-main img {
-  border-radius: 22px !important;
-  overflow: hidden !important;
 }
