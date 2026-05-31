@@ -1,6 +1,7 @@
 /* =========================================================
-   STYLE.CSS â€” Centre Stella Maria
+   STYLE.CSS — Centre Stella Maria
    Charte chaude ocre / jaune / brun / bordeaux / noir
+   Photos harmonisées, non déformées, non coupées
    ========================================================= */
 
 :root {
@@ -23,8 +24,6 @@
 
   --shadow-soft: 0 10px 28px rgba(74, 46, 31, 0.14);
   --shadow-strong: 0 16px 40px rgba(74, 46, 31, 0.22);
-
-  --radius: 22px;
 }
 
 * {
@@ -42,8 +41,6 @@ body {
   background: var(--color-bg);
   line-height: 1.6;
 }
-
-/* ===== HEADER ===== */
 
 .site-header {
   background: rgba(255, 250, 240, 0.96);
@@ -76,12 +73,18 @@ body {
   text-decoration: underline;
 }
 
-/* ===== HERO ===== */
-
 .hero {
   background:
-    linear-gradient(135deg, rgba(127, 48, 43, 0.94), rgba(156, 74, 53, 0.9)),
-    linear-gradient(135deg, var(--color-ocre-light), var(--color-sand));
+    linear-gradient(
+      135deg,
+      rgba(127, 48, 43, 0.94),
+      rgba(156, 74, 53, 0.9)
+    ),
+    linear-gradient(
+      135deg,
+      var(--color-ocre-light),
+      var(--color-sand)
+    );
   padding: 90px 20px 80px;
   text-align: center;
   color: var(--color-white);
@@ -159,8 +162,6 @@ h1 {
   color: var(--color-bordeaux-dark);
 }
 
-/* ===== SECTIONS ===== */
-
 .section {
   padding: 72px 20px;
   background: var(--color-bg);
@@ -210,8 +211,6 @@ a:hover {
   color: var(--color-rust);
 }
 
-/* ===== CARTES ===== */
-
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -235,8 +234,6 @@ a:hover {
   box-shadow: var(--shadow-strong);
 }
 
-/* ===== LISTE ===== */
-
 .check-list {
   padding-left: 0;
   list-style: none;
@@ -254,13 +251,11 @@ a:hover {
 }
 
 .check-list li::before {
-  content: "âœ“";
+  content: "✓";
   color: var(--color-bordeaux);
   font-weight: bold;
   margin-right: 8px;
 }
-
-/* ===== INFO BOX ===== */
 
 .info-box {
   background: var(--color-white);
@@ -274,8 +269,6 @@ a:hover {
 .info-box p {
   margin: 10px 0;
 }
-
-/* ===== FAQ ===== */
 
 .faq {
   border-top: 1px solid var(--color-border);
@@ -291,10 +284,13 @@ a:hover {
   margin-top: 0;
 }
 
-/* ===== CONTACT ===== */
-
 .contact-section {
-  background: linear-gradient(135deg, var(--color-bordeaux-dark), var(--color-brown));
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-bordeaux-dark),
+      var(--color-brown)
+    );
   color: var(--color-white);
   text-align: center;
 }
@@ -318,8 +314,6 @@ a:hover {
   opacity: 0.9;
   margin-top: 24px;
 }
-
-/* ===== FOOTER ===== */
 
 .footer {
   background: var(--color-black);
@@ -355,34 +349,12 @@ a:hover {
 }
 
 /* =========================================================
-   PHOTOS â€” BORDS ARRONDIS UNIFORMES SUR TOUTES LES IMAGES
-   La rÃ¨gle de base s'applique Ã  TOUTES les images du site.
-   Les conteneurs ont overflow:hidden pour garantir le rendu.
+   PHOTOS — SANS CROP, SANS DÉFORMATION, SANS CADRE BLANC VIDE
    ========================================================= */
 
-/* Reset margin figure partout */
 figure {
   margin: 0;
 }
-
-/* --- RÃ¨gle universelle : tout conteneur d'image ---
-   On applique overflow:hidden + border-radius sur le conteneur,
-   et border-radius sur l'image elle-mÃªme pour doublement garantir l'arrondi. */
-
-.hero-photo,
-.photo-card,
-.transparency-photo {
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-/* Toutes les images du site : bords arrondis sans exception */
-main img {
-  border-radius: var(--radius);
-  display: block;
-}
-
-/* ===== HERO PHOTO ===== */
 
 .hero-photo {
   margin: 38px auto 0;
@@ -390,14 +362,14 @@ main img {
 }
 
 .hero-photo img {
+  display: block;
   width: 100%;
   height: auto;
   max-height: 540px;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 24px;
   box-shadow: var(--shadow-strong);
 }
-
-/* ===== MOSAÃQUES DE PHOTOS ===== */
 
 .media-mosaic {
   display: grid;
@@ -406,65 +378,75 @@ main img {
 }
 
 .photo-card {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 18px;
   overflow: hidden;
-  border-radius: var(--radius);
 }
 
 .photo-card img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--radius);
+  height: auto;
+  max-height: 310px;
+  object-fit: contain;
+  border-radius: 18px;
   box-shadow: var(--shadow-soft);
 }
 
-/* Mission : 4 photos en grille 2Ã—2 */
+/* Mission : 4 photos équilibrées */
 .mission-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.mission-media .photo-card {
-  height: 245px;
+.mission-media .photo-card img {
+  max-height: 245px;
 }
 
-/* Enfants */
+/* Qui nous aidons : photos enfants et lieu */
 .children-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.children-media .photo-card {
-  height: 275px;
+.children-media .photo-card img {
+  max-height: 275px;
 }
 
 .children-media .photo-card.wide {
   grid-column: 1 / -1;
-  height: 260px;
 }
 
-/* Comment aider */
+.children-media .photo-card.wide img {
+  max-height: 260px;
+}
+
+/* Comment aider : support matériel, quotidien, lieux */
 .support-media {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 34px;
 }
 
-.support-media .photo-card {
-  height: 250px;
+.support-media .photo-card img {
+  max-height: 250px;
 }
 
 .support-media .photo-card.wide {
   grid-column: span 2;
-  height: 280px;
 }
 
-/* BÃ©nÃ©volat */
+.support-media .photo-card.wide img {
+  max-height: 280px;
+}
+
+/* Bénévolat : visuels plus nombreux, grille compacte */
 .volunteer-media {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.volunteer-media .photo-card {
-  height: 235px;
+.volunteer-media .photo-card img {
+  max-height: 235px;
 }
 
 /* Informations pratiques */
@@ -472,13 +454,16 @@ main img {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.practical-media .photo-card {
-  height: 250px;
+.practical-media .photo-card img {
+  max-height: 250px;
 }
 
 .practical-media .photo-card.wide {
   grid-column: 1 / -1;
-  height: 285px;
+}
+
+.practical-media .photo-card.wide img {
+  max-height: 285px;
 }
 
 /* Transparence */
@@ -486,19 +471,8 @@ main img {
   grid-template-columns: minmax(0, 1fr) minmax(260px, 0.75fr);
 }
 
-.transparency-photo {
-  display: block;
-  overflow: hidden;
-  border-radius: var(--radius);
-  height: 360px;
-}
-
 .transparency-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-soft);
+  max-height: 360px;
 }
 
 /* Galerie finale */
@@ -513,8 +487,8 @@ main img {
   margin-top: 30px;
 }
 
-.final-gallery .photo-card {
-  height: 360px;
+.final-gallery .photo-card img {
+  max-height: 360px;
 }
 
 /* =========================================================
@@ -535,25 +509,44 @@ main img {
   .support-media .photo-card.wide {
     grid-column: 1 / -1;
   }
-
-  .transparency-photo {
-    height: 300px;
-  }
 }
 
 @media (max-width: 800px) {
-  .nav { gap: 14px; }
-  .nav a { font-size: 14px; }
+  .nav {
+    gap: 14px;
+  }
 
-  .hero { padding: 70px 20px 58px; }
+  .nav a {
+    font-size: 14px;
+  }
 
-  h1 { font-size: 34px; }
-  h2 { font-size: 28px; }
-  p { font-size: 17px; }
-  .hero-text { font-size: 18px; }
+  .hero {
+    padding: 70px 20px 58px;
+  }
 
-  .section { padding: 55px 20px; }
-  .cards { grid-template-columns: 1fr; }
+  h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+
+  .hero-text {
+    font-size: 18px;
+  }
+
+  .section {
+    padding: 55px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
 
   .mission-media,
   .children-media,
@@ -564,25 +557,28 @@ main img {
     grid-template-columns: 1fr;
   }
 
-  .mission-media .photo-card,
-  .children-media .photo-card,
-  .children-media .photo-card.wide,
-  .support-media .photo-card,
   .support-media .photo-card.wide,
-  .volunteer-media .photo-card,
-  .practical-media .photo-card,
-  .practical-media .photo-card.wide,
-  .final-gallery .photo-card {
-    height: 280px;
+  .children-media .photo-card.wide,
+  .practical-media .photo-card.wide {
     grid-column: auto;
   }
 
   .hero-photo img {
-    max-height: 380px;
+    max-height: 420px;
   }
 
-  .transparency-photo {
-    height: 260px;
+  .photo-card img,
+  .mission-media .photo-card img,
+  .children-media .photo-card img,
+  .children-media .photo-card.wide img,
+  .support-media .photo-card img,
+  .support-media .photo-card.wide img,
+  .volunteer-media .photo-card img,
+  .practical-media .photo-card img,
+  .practical-media .photo-card.wide img,
+  .transparency-photo img,
+  .final-gallery .photo-card img {
+    max-height: 360px;
   }
 
   .button {
@@ -590,4 +586,26 @@ main img {
     max-width: 320px;
     text-align: center;
   }
+}
+/* =========================================================
+   ARRONDI GLOBAL FORCÉ DES IMAGES
+   ========================================================= */
+
+.hero-photo,
+.photo-card,
+.final-gallery .photo-card,
+.media-mosaic .photo-card,
+.transparency-photo {
+  border-radius: 22px !important;
+  overflow: hidden !important;
+}
+
+.hero-photo img,
+.photo-card img,
+.final-gallery img,
+.media-mosaic img,
+.transparency-photo img,
+main img {
+  border-radius: 22px !important;
+  overflow: hidden !important;
 }
