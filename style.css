@@ -447,6 +447,14 @@ figure { margin: 0; }
   height: 380px;
 }
 
+.final-gallery .photo-card {
+  border-radius: 0;
+}
+
+.final-gallery .photo-card img {
+  border-radius: 0;
+}
+
 /* =========================================================
    RESPONSIVE
    ========================================================= */
