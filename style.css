@@ -1,28 +1,22 @@
 /* =========================================================
-   STYLE.CSS â€” Centre Stella Maria
+   STYLE.CSS — Centre Stella Maria
    ========================================================= */
 
 :root {
   --color-bg: #fffaf0;
   --color-bg-light: #f7ecd2;
-
   --color-ocre: #d9a321;
   --color-ocre-light: #f3c94f;
   --color-sand: #ead0a3;
-
   --color-bordeaux: #7f302b;
   --color-bordeaux-dark: #5c1f1d;
   --color-rust: #9c4a35;
-
   --color-brown: #4a2e1f;
   --color-black: #18120d;
-
   --color-white: #ffffff;
   --color-border: #e1c48d;
-
   --shadow-soft: 0 10px 28px rgba(74, 46, 31, 0.14);
   --shadow-strong: 0 16px 40px rgba(74, 46, 31, 0.22);
-
   --radius: 22px;
 }
 
@@ -37,7 +31,6 @@ body {
   line-height: 1.6;
 }
 
-/* ===== HEADER ===== */
 .site-header {
   background: rgba(255, 250, 240, 0.96);
   border-bottom: 1px solid var(--color-border);
@@ -69,7 +62,6 @@ body {
   text-decoration: underline;
 }
 
-/* ===== HERO ===== */
 .hero {
   background:
     linear-gradient(135deg, rgba(127, 48, 43, 0.94), rgba(156, 74, 53, 0.9)),
@@ -97,19 +89,8 @@ body {
   border-radius: 999px;
 }
 
-h1 {
-  font-size: 44px;
-  line-height: 1.15;
-  margin: 0 0 24px;
-  color: var(--color-white);
-}
-
-.hero-text {
-  font-size: 20px;
-  max-width: 800px;
-  margin: 0 auto 30px;
-  color: #fff7e6;
-}
+h1 { font-size: 44px; line-height: 1.15; margin: 0 0 24px; color: var(--color-white); }
+.hero-text { font-size: 20px; max-width: 800px; margin: 0 auto 30px; color: #fff7e6; }
 
 .hero-buttons,
 .contact-buttons {
@@ -151,20 +132,9 @@ h1 {
   color: var(--color-bordeaux-dark);
 }
 
-/* ===== SECTIONS ===== */
-.section {
-  padding: 72px 20px;
-  background: var(--color-bg);
-}
-
-.section.light {
-  background: var(--color-bg-light);
-}
-
-.container {
-  max-width: 1120px;
-  margin: 0 auto;
-}
+.section { padding: 72px 20px; background: var(--color-bg); }
+.section.light { background: var(--color-bg-light); }
+.container { max-width: 1120px; margin: 0 auto; }
 
 h2 {
   font-size: 32px;
@@ -190,14 +160,7 @@ a { color: var(--color-bordeaux); }
 a:hover { color: var(--color-rust); }
 figure { margin: 0; }
 
-/* ===== CARTES ===== */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin-top: 30px;
-}
-
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 30px; }
 .single-card { grid-template-columns: 1fr; }
 
 .card {
@@ -207,16 +170,9 @@ figure { margin: 0; }
   padding: 24px;
   box-shadow: var(--shadow-soft);
 }
-
 .card:hover { box-shadow: var(--shadow-strong); }
 
-/* ===== LISTE ===== */
-.check-list {
-  padding-left: 0;
-  list-style: none;
-  margin: 28px 0;
-}
-
+.check-list { padding-left: 0; list-style: none; margin: 28px 0; }
 .check-list li {
   background: var(--color-white);
   margin-bottom: 12px;
@@ -226,15 +182,8 @@ figure { margin: 0; }
   font-size: 18px;
   box-shadow: 0 4px 14px rgba(74, 46, 31, 0.08);
 }
+.check-list li::before { content: "✓"; color: var(--color-bordeaux); font-weight: bold; margin-right: 8px; }
 
-.check-list li::before {
-  content: "âœ“";
-  color: var(--color-bordeaux);
-  font-weight: bold;
-  margin-right: 8px;
-}
-
-/* ===== INFO BOX ===== */
 .info-box {
   background: var(--color-white);
   border: 1px solid var(--color-border);
@@ -243,30 +192,21 @@ figure { margin: 0; }
   padding: 24px;
   box-shadow: var(--shadow-soft);
 }
-
 .info-box p { margin: 10px 0; }
 
-/* ===== FAQ ===== */
 .faq { border-top: 1px solid var(--color-border); }
 .faq h3 { margin-top: 26px; margin-bottom: 8px; color: var(--color-bordeaux-dark); }
 .faq p { margin-top: 0; }
 
-/* ===== CONTACT ===== */
 .contact-section {
   background: linear-gradient(135deg, var(--color-bordeaux-dark), var(--color-brown));
   color: var(--color-white);
   text-align: center;
 }
-
 .contact-section h2 { color: var(--color-white); }
-.contact-section h2::after {
-  background: var(--color-ocre-light);
-  margin-left: auto;
-  margin-right: auto;
-}
+.contact-section h2::after { background: var(--color-ocre-light); margin-left: auto; margin-right: auto; }
 .contact-section p { color: #fff3d6; }
 
-/* ===== FOOTER ===== */
 .footer {
   background: var(--color-black);
   color: var(--color-white);
@@ -274,12 +214,7 @@ figure { margin: 0; }
   padding: 30px 20px;
   border-top: 6px solid var(--color-ocre);
 }
-
 .footer p { font-size: 15px; margin: 6px 0; color: #f8ead0; }
-
-/* =========================================================
-   STRUCTURE TEXTE + PHOTOS
-   ========================================================= */
 
 .section-layout {
   display: grid;
@@ -287,23 +222,13 @@ figure { margin: 0; }
   gap: 42px;
   align-items: center;
 }
-
-.section-layout.reverse {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-}
-
+.section-layout.reverse { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .section-text { min-width: 0; }
 
 /* =========================================================
    PHOTOS
-
-   RÃ¨gle gÃ©nÃ©rale : toutes les .photo-card ont bords arrondis
-   Exceptions explicites :
-     - .hero-photo          â†’ coins CARRÃ‰S (soeurs-portail)
-     - .final-gallery .photo-card â†’ coins CARRÃ‰S (soeurs-enfants, soeurs-bethanie)
    ========================================================= */
 
-/* --- HERO PHOTO : coins CARRÃ‰S --- */
 .hero-photo {
   margin: 38px auto 0;
   max-width: 860px;
@@ -311,7 +236,6 @@ figure { margin: 0; }
   overflow: visible;
   box-shadow: var(--shadow-strong);
 }
-
 .hero-photo img {
   display: block;
   width: 100%;
@@ -321,101 +245,46 @@ figure { margin: 0; }
   border-radius: 0;
 }
 
-/* --- PHOTO-CARD gÃ©nÃ©rique : coins ARRONDIS --- */
+/* Toutes les photo-card : arrondies */
 .photo-card {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
 }
-
 .photo-card img {
   display: block;
   width: 100%;
   object-fit: cover;
-  border-radius: 0; /* arrondi gÃ©rÃ© par le conteneur via overflow:hidden */
-}
-
-/* --- GALERIE FINALE : coins CARRÃ‰S --- */
-.final-gallery .photo-card {
   border-radius: 0;
-  overflow: visible;
 }
 
-.final-gallery .photo-card img {
-  border-radius: 0;
-  height: 380px;
-}
+.media-mosaic { display: grid; gap: 18px; align-items: start; }
 
-/* ===== MOSAÃQUES ===== */
-.media-mosaic {
-  display: grid;
-  gap: 18px;
-  align-items: start;
-}
-
-/* Mission */
-.mission-media {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
+.mission-media { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .mission-media .photo-card img { height: 230px; }
 
-/* Enfants */
-.children-media {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
+.children-media { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .children-media .photo-card img { height: 260px; }
-
 .children-media .photo-card.wide { grid-column: 1 / -1; }
 .children-media .photo-card.wide img { height: 300px; }
 
-/* Comment aider */
-.support-media {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 34px;
-}
-
+.support-media { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 34px; }
 .support-media .photo-card img { height: 240px; }
 .support-media .photo-card.wide { grid-column: span 2; }
 .support-media .photo-card.wide img { height: 280px; }
 
-/* BÃ©nÃ©volat */
-.volunteer-media {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
+.volunteer-media { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .volunteer-media .photo-card img { height: 230px; }
 
-/* Infos pratiques */
-.practical-media {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
+.practical-media { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .practical-media .photo-card img { height: 240px; }
 .practical-media .photo-card.wide { grid-column: 1 / -1; }
 .practical-media .photo-card.wide img { height: 320px; }
 
-/* Transparence */
-.transparency-layout {
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.75fr);
-}
+.transparency-layout { grid-template-columns: minmax(0, 1fr) minmax(260px, 0.75fr); }
+.transparency-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-soft); }
+.transparency-photo img { display: block; width: 100%; height: 360px; object-fit: cover; border-radius: 0; }
 
-.transparency-photo {
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
-}
-
-.transparency-photo img {
-  display: block;
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 0;
-}
-
-/* Galerie finale conteneur */
 .gallery-final-section { padding-top: 58px; }
 
 .final-gallery {
@@ -425,6 +294,16 @@ figure { margin: 0; }
   margin-top: 30px;
 }
 
+/* Galerie finale : coins CARRES — écrase la règle .photo-card ci-dessus */
+.gallery-final-section .final-gallery .photo-card {
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+.gallery-final-section .final-gallery .photo-card img {
+  border-radius: 0 !important;
+  height: 380px;
+}
+
 /* =========================================================
    RESPONSIVE
    ========================================================= */
@@ -432,16 +311,9 @@ figure { margin: 0; }
 @media (max-width: 1000px) {
   .section-layout,
   .section-layout.reverse,
-  .transparency-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .support-media {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
+  .transparency-layout { grid-template-columns: 1fr; }
+  .support-media { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .support-media .photo-card.wide { grid-column: 1 / -1; }
-
   .transparency-photo img { height: 280px; }
 }
 
@@ -461,15 +333,11 @@ figure { margin: 0; }
   .support-media,
   .volunteer-media,
   .practical-media,
-  .final-gallery {
-    grid-template-columns: 1fr;
-  }
+  .final-gallery { grid-template-columns: 1fr; }
 
   .support-media .photo-card.wide,
   .children-media .photo-card.wide,
-  .practical-media .photo-card.wide {
-    grid-column: auto;
-  }
+  .practical-media .photo-card.wide { grid-column: auto; }
 
   .mission-media .photo-card img,
   .children-media .photo-card img,
@@ -479,23 +347,9 @@ figure { margin: 0; }
   .volunteer-media .photo-card img,
   .practical-media .photo-card img,
   .practical-media .photo-card.wide img,
-  .transparency-photo img {
-    height: 260px;
-  }
+  .transparency-photo img { height: 260px; }
 
-  .final-gallery .photo-card img { height: 260px; }
+  .gallery-final-section .final-gallery .photo-card img { height: 260px !important; }
 
-  .button {
-    width: 100%;
-    max-width: 320px;
-    text-align: center;
-  }
-}
-.final-gallery .photo-card {
-  border-radius: 0 !important;
-  overflow: visible !important;
-}
-
-.final-gallery .photo-card img {
-  border-radius: 0 !important;
+  .button { width: 100%; max-width: 320px; text-align: center; }
 }
